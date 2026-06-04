@@ -1,0 +1,24 @@
+[project]
+name = "dataset-lg-code"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "dbt-core>=1.11.2",
+    "dbt-duckdb>=1.10.0",
+    "duckdb==1.5.2",
+    "boto3>=1.35",
+]
+
+[tool.queria]
+name = "lg_code"
+title = "全国地方公共団体コード"
+description = "総務省が定める全国の都道府県・市区町村等の団体コード（6桁・チェックディジット込み）マスタ"
+cover = "🏛️"
+tags = ["地方公共団体コード", "市区町村", "総務省", "マスタ"]
+license = "政府標準利用規約 第2.0版"
+license_url = "https://www.soumu.go.jp/menu_kyotsuu/policy/tyosaku.html"
+repository_url = "https://github.com/flo8s/dataset-lg-code"
+schedule = "monthly"
+
+[tool.queria.schemas.main]
+title = "メイン"
