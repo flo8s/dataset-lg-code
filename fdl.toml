@@ -19,6 +19,6 @@ title = "全国地方公共団体コード"
 description = "総務省が定める全国の都道府県・市区町村等の団体コード（6桁・チェックディジット込み）マスタ"
 cover = "🏛️"
 tags = ['地方公共団体コード', '市区町村', '総務省', 'マスタ']
-repository_url = "https://github.com/flo8s/dataset-lg-code"
+repository_url = "https://github.com/queria-io/dataset-lg-code"
 schedule = "monthly"
 schemas.main.title = "メイン"
