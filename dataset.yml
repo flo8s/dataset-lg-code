@@ -1,0 +1,50 @@
+spec_version: "0.1"
+name: lg_code
+title: 全国地方公共団体コード
+description: 総務省が定める全国の都道府県・市区町村等の団体コード（6桁・チェックディジット込み）マスタ
+keywords:
+  - 地方公共団体コード
+  - 市区町村
+  - 総務省
+  - マスタ
+homepage: https://github.com/queria-io/dataset-lg-code
+language: ja
+
+licenses:
+  - JP-GOV-STD-2.0
+
+sources:
+  - title: 全国地方公共団体コード（総務省）
+    path: https://www.soumu.go.jp/denshijiti/code.html
+
+contributors:
+  - title: 総務省
+    path: https://www.soumu.go.jp/
+    roles: [rightsHolder]
+
+spatial_coverage: [JP]
+update_frequency: monthly
+cover: 🏛️
+
+ai_context:
+  instructions: |
+    市区町村コードから団体名を引く、他のデータセットを市区町村単位で結合する、
+    都道府県ごとに市区町村を数える、といった名寄せの起点に使う。
+    lg_code は6桁（チェックディジット付き）。多くの統計データは5桁の市区町村コードを使うので、
+    結合するときは lg_code_5 を使う（6桁と5桁は1対1で対応する）。
+    都道府県のレコードと市区町村のレコードが同じ表に入っている（全1794行のうち都道府県47、
+    市区町村1747）。市区町村だけを数えるときは code_type = 'municipality' で絞る
+    （都道府県レコードでは city が NULL）。東京23特別区は市区町村として入るが、
+    政令指定都市の行政区は入らない。
+    収録は現行の団体のみで、市町村合併などで消滅した団体は含まない。過去のコードを
+    引く必要があるときは e-stat の標準地域コード（廃置分合履歴つき）を使う。
+    カナ名は半角カタカナのまま収録している。
+  synonyms: [市区町村コード, 団体コード, 自治体コード, JIS X0402]
+  examples:
+    - 市区町村コード 131016 はどこ？
+    - 都道府県ごとの市区町村の数を出したい
+    - 5桁の市区町村コードから団体名を引きたい
+
+schemas:
+  - name: main
+    title: メイン
