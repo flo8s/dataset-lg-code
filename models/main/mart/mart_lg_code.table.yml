@@ -1,0 +1,37 @@
+schema: main
+name: mart_lg_code
+title: 全国地方公共団体コード
+description: 総務省が定める全国地方公共団体コード（団体コード）のマスタ。都道府県・市区町村等の6桁コードと5桁コード、都道府県コード、名称（漢字・カナ）、団体区分を収録する。
+keywords:
+  - 地方公共団体コード
+  - 市区町村
+  - 総務省
+  - マスタ
+published: true
+sources:
+  - path: https://www.soumu.go.jp/denshijiti/code.html
+fields:
+  - name: lg_code
+    title: 団体コード
+    description: 全国地方公共団体コード（JIS X0401, X0402 の6桁、チェックディジット付き）
+  - name: pref_code
+    title: 都道府県コード
+    description: 団体コードの先頭2桁
+  - name: lg_code_5
+    title: 団体コード（5桁）
+    description: 団体コードのチェックディジットを除いた先頭5桁
+  - name: prefecture
+    title: 都道府県名
+    description: 漢字表記
+  - name: city
+    title: 市区町村名
+    description: 漢字表記。都道府県レコードでは NULL
+  - name: prefecture_kana
+    title: 都道府県名カナ
+    description: 半角カナ表記
+  - name: city_kana
+    title: 市区町村名カナ
+    description: 半角カナ表記。都道府県レコードでは NULL
+  - name: code_type
+    title: コード種別
+    description: prefecture=都道府県、municipality=市区町村
